@@ -1,0 +1,64 @@
+<p>
+    Дана таблица всех доступных продуктов на складе. Данные представлены в виде {% if interpreter.slug == "js-node" %} массива объектов (array of objects){% else %}списка словарей (a list of dicts){% endif %}
+</p>
+
+<p>
+    Ваша миссия тут - это найти ТОП самых дорогих товаров. Количество товаров, которые мы ищем, будет передано в первом аргументе, а сами данные по товарам будут переданы вторым аргументом.
+</p>
+
+{% if interpreter.slug == "js-node" %}
+<p>
+    <strong>Вх. данные: </strong>Число и массив объектов (Integer and array of objects). У каждого объекта 2 атрибута "name" и "price"
+</p>
+{% else %}
+<p>
+    <strong>Вх. данные: </strong>Число и список словарей (int and list of dicts). Каждый словарь имеет 2 ключа "name" и "price".
+</p>
+{% endif %}
+
+<p>
+    <strong>Вых. данные: </strong>Такой же как и второй аргумент.
+</p>
+
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Примеры:</strong>
+    </p>
+
+{% if interpreter.slug == "js-node" %}
+<pre class="brush: javascript">biggerPrice(2, [
+    {"name": "bread", "price": 100},
+    {"name": "wine", "price": 138},
+    {"name": "meat", "price": 15},
+    {"name": "water", "price": 1}
+]) == [
+    {"name": "wine", "price": 138},
+    {"name": "bread", "price": 100}
+]
+
+biggerPrice(1, [
+    {"name": "pen", "price": 5},
+    {"name": "whiteboard", "price": 170}
+]) == [{"name": "whiteboard", "price": 170}]
+</pre>
+{% else %}
+<pre class="brush: python">bigger_price(2, [
+    {"name": "bread", "price": 100},
+    {"name": "wine", "price": 138},
+    {"name": "meat", "price": 15},
+    {"name": "water", "price": 1}
+]) == [
+    {"name": "wine", "price": 138},
+    {"name": "bread", "price": 100}
+]
+
+bigger_price(1, [
+    {"name": "pen", "price": 5},
+    {"name": "whiteboard", "price": 170}
+]) == [{"name": "whiteboard", "price": 170}]
+</pre>
+{% endif %}
+</div>
+
